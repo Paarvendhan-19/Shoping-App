@@ -10,6 +10,20 @@ exports.getProduct = async (req, res) => {
     }
 }
 
+exports.getSingleProduct = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const product = await productModel.findById(id);
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+        res.json(product);
+    } catch (error) {
+        console.error("error in fetching single product", error);
+        res.status(500).json({ error: 'Server error' });
+    }
+}
+
 exports.postProduct = async (req, res) => {
     const { name, description, image, price } = req.body;
     try {

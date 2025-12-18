@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { products } from "../utils/api"
+import { fetchProductById } from "../utils/api"
 
 export default function Product() { // Component name capitalized convention
   const { id } = useParams();
-  const p = products.find((p) => p.id === parseInt(id))
+  const [p, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadProduct = async () => {
+      const data = await fetchProductById(id);
+      setProduct(data);
+      setLoading(false);
+    };
+    loadProduct();
+  }, [id]);
+
+  if (loading) {
+    return <div className="min-h-[50vh] flex items-center justify-center text-xl">Loading product...</div>
+  }
 
   if (!p) {
     return (
@@ -42,7 +56,7 @@ export default function Product() { // Component name capitalized convention
 
           <div className="flex gap-4">
             <Link
-              to={`/buynow/${p.id}`}
+              to={`/buynow/${p._id}`}
               className="flex-1 bg-blue-600 text-white text-center px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/30"
             >
               Buy Now
