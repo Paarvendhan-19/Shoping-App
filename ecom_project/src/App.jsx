@@ -10,6 +10,7 @@ import Product from "./components/product" // Fixed import case sensitivity
 import Cart from "./components/Cart"
 import BuyNow from "./components/BuyNow"
 import Login from "./components/Login"
+import AddProduct from "./components/AddProduct"
 import ProtectedRoute from "./pages/protectedRoute"
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           </ProtectedRoute>
         } />
         <Route path="/buynow/:id" element={<BuyNow />} />
+        <Route path="/add-product" element={<AddProduct />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </Layout>

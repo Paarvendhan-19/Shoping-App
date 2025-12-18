@@ -27,6 +27,7 @@ const Layout = ({ children, cartCount, logout }) => {
                             <Link to="/products" className={`px-1 py-2 text-sm font-medium ${isActive('/products')}`}>Products</Link>
                             <Link to="/about" className={`px-1 py-2 text-sm font-medium ${isActive('/about')}`}>About</Link>
                             <Link to="/contact" className={`px-1 py-2 text-sm font-medium ${isActive('/contact')}`}>Contact</Link>
+                            <Link to="/add-product" className={`px-1 py-2 text-sm font-medium ${isActive('/add-product')}`}>Add Product</Link>
                         </nav>
 
                         <div className="flex items-center space-x-4">
