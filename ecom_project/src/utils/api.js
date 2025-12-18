@@ -1,4 +1,5 @@
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:2796/api";
+const rawUrl = import.meta.env.VITE_API_URL || "http://localhost:2796/api";
+export const API_URL = rawUrl.endsWith('/api') ? rawUrl : `${rawUrl}/api`;
 
 export const fetchProducts = async () => {
   try {
