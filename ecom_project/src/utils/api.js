@@ -1,5 +1,7 @@
-const rawUrl = import.meta.env.VITE_API_URL || "http://localhost:2796/api";
-export const API_URL = rawUrl.endsWith('/api') ? rawUrl : `${rawUrl}/api`;
+const rawEnvUrl = import.meta.env.VITE_API_URL || "http://localhost:2796/api";
+// Remove any trailing slash from the env var and then ensuring /api suffix
+const normalizedBase = rawEnvUrl.endsWith('/') ? rawEnvUrl.slice(0, -1) : rawEnvUrl;
+export const API_URL = normalizedBase.endsWith('/api') ? normalizedBase : `${normalizedBase}/api`;
 
 export const fetchProducts = async () => {
   try {
