@@ -32,10 +32,10 @@ export default function Product() { // Component name capitalized convention
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden dark:bg-gray-800 dark:border-gray-700">
       <div className="md:flex">
         {/* Image Section */}
-        <div className="md:w-1/2 bg-gray-50 p-8 flex items-center justify-center">
+        <div className="md:w-1/2 bg-gray-50 p-8 flex items-center justify-center dark:bg-gray-900">
           <img
             src={p.image}
             alt={p.name}
@@ -45,11 +45,11 @@ export default function Product() { // Component name capitalized convention
 
         {/* Details Section */}
         <div className="md:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-          <div className="uppercase tracking-wide text-sm text-blue-600 font-semibold mb-1">Premium Quality</div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">{p.name}</h1>
-          <p className="text-4xl text-gray-900 font-bold mb-6">₹{p.price.toLocaleString()}</p>
+          <div className="uppercase tracking-wide text-sm text-blue-600 font-semibold mb-1 dark:text-blue-400">Premium Quality</div>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 dark:text-white">{p.name}</h1>
+          <p className="text-4xl text-gray-900 font-bold mb-6 dark:text-white">₹{p.price.toLocaleString()}</p>
 
-          <div className="prose prose-sm text-gray-500 mb-8">
+          <div className="prose prose-sm text-gray-500 mb-8 dark:text-gray-300">
             <p>{p.description}</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
           </div>
@@ -63,7 +63,7 @@ export default function Product() { // Component name capitalized convention
             </Link>
             <Link
               to="/products"
-              className="px-6 py-4 border border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
+              className="px-6 py-4 border border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700"
             >
               Back
             </Link>

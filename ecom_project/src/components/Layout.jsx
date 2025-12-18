@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import ThemeToggle from './ThemeToggle';
+
 const Layout = ({ children, cartCount, logout }) => {
     const location = useLocation();
     const isLoggedIn = localStorage.getItem("email");
 
     const isActive = (path) => location.pathname === path
-        ? "text-blue-600 font-semibold border-b-2 border-blue-600"
-        : "text-gray-600 hover:text-blue-500 transition-colors";
+        ? "text-blue-600 font-semibold border-b-2 border-blue-600 dark:text-blue-400 dark:border-blue-400"
+        : "text-gray-600 hover:text-blue-500 transition-colors dark:text-gray-300 dark:hover:text-blue-400";
 
     return (
-        <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
-            <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100">
+        <div className="min-h-screen flex flex-col bg-slate-50 font-sans dark:bg-gray-900 dark:text-white transition-colors duration-300">
+            <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm border-b border-gray-100 dark:bg-gray-900/80 dark:border-gray-800 transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <div className="flex-shrink-0 flex items-center">
@@ -28,7 +30,8 @@ const Layout = ({ children, cartCount, logout }) => {
                         </nav>
 
                         <div className="flex items-center space-x-4">
-                            <Link to="/cart" className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors group">
+                            <ThemeToggle />
+                            <Link to="/cart" className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors group dark:text-gray-300 dark:hover:text-blue-400">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                 </svg>
@@ -65,24 +68,24 @@ const Layout = ({ children, cartCount, logout }) => {
                 </div>
             </main>
 
-            <footer className="bg-white border-t border-gray-100">
+            <footer className="bg-white border-t border-gray-100 dark:bg-gray-900 dark:border-gray-800 transition-colors duration-300">
                 <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <div className="col-span-1 md:col-span-2">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">LuxeStore</h3>
-                            <p className="text-gray-500 text-sm max-w-md">
+                            <h3 className="text-xl font-bold text-gray-900 mb-4 dark:text-white">LuxeStore</h3>
+                            <p className="text-gray-500 text-sm max-w-md dark:text-gray-400">
                                 Offering the finest selection of premium products with an effortless shopping experience.
                             </p>
                         </div>
                         <div>
-                            <h4 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Links</h4>
+                            <h4 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4 dark:text-gray-200">Links</h4>
                             <ul className="space-y-4">
-                                <li><Link to="/products" className="text-base text-gray-500 hover:text-gray-900">Shop</Link></li>
-                                <li><Link to="/about" className="text-base text-gray-500 hover:text-gray-900">About</Link></li>
+                                <li><Link to="/products" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Shop</Link></li>
+                                <li><Link to="/about" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">About</Link></li>
                             </ul>
                         </div>
                         <div>
-                            <h4 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Support</h4>
+                            <h4 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4 dark:text-gray-200">Support</h4>
                             <ul className="space-y-4">
                                 <li><Link to="/contact" className="text-base text-gray-500 hover:text-gray-900">Contact</Link></li>
                                 <li><Link to="/login" className="text-base text-gray-500 hover:text-gray-900">Account</Link></li>

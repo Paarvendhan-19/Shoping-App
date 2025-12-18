@@ -33,11 +33,11 @@ export default function Products({ setcart, cart }) {
 
   return (
     <div className="py-10">
-      <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center">Our Collection</h2>
+      <h2 className="text-3xl font-extrabold text-gray-900 mb-8 text-center dark:text-white">Our Collection</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {products.map(p => (
-          <div key={p._id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
-            <div className="relative h-64 overflow-hidden bg-gray-100/50">
+          <div key={p._id} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden group dark:bg-gray-800 dark:shadow-gray-900/50">
+            <div className="relative h-64 overflow-hidden bg-gray-100/50 dark:bg-gray-700/50">
               {/* Use a placeholder if image fails, or object-contain to avoid crop */}
               <img
                 src={p.image}
@@ -47,10 +47,10 @@ export default function Products({ setcart, cart }) {
             </div>
             <div className="p-6">
               <div className="flex justify-between items-start mb-2">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 truncate pr-2">{p.name}</h3>
-                <span className="text-lg font-bold text-blue-600">₹{p.price}</span>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2 truncate pr-2 dark:text-white">{p.name}</h3>
+                <span className="text-lg font-bold text-blue-600 dark:text-blue-400">₹{p.price}</span>
               </div>
-              <p className="text-gray-500 text-sm mb-4 line-clamp-2 h-10">{p.description}</p>
+              <p className="text-gray-500 text-sm mb-4 line-clamp-2 h-10 dark:text-gray-400">{p.description}</p>
 
               <div className="flex gap-3">
                 <button
