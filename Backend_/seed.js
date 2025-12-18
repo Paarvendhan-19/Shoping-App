@@ -57,8 +57,7 @@ const products = [
 
 const seedDB = async () => {
     try {
-        const connStr = "mongodb+srv://Vetri:Vetrivel@vetri.bha6yjq.mongodb.net/backend";
-        // const connStr = process.env.MONGO_URI || process.env.Vetrivel;
+        const connStr = process.env.MONGO_URI || process.env.Vetrivel;
         if (!connStr) {
             throw new Error("MONGO_URI or Vetrivel environment variable not set");
         }
